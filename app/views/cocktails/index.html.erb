@@ -1,0 +1,31 @@
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%) , url('https://picsum.photos/1500/2000');">
+  <div class="banner-content">
+    <h1>Le Wagon Berlin</h1>
+    <p>Learn to code with us in Berlin</p>
+    <a class="btn btn-primary btn-lg">Start now</a>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1> all cocktails</h1>
+  <div class="row">
+   <% @cocktails.each do |cocktail|  %>
+        <div class="col-xs-4">
+          <div class="card">
+            <div class="card-description">
+              <ul>
+                <li>
+                  <%= cocktail.name  %> </li>
+                  <li><%= link_to "detail",cocktail_path(cocktail)%></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
+
+
+</div>
+
+
