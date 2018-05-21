@@ -1,4 +1,4 @@
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%) , url('https://picsum.photos/1500/2000');">
+<div class="banner" >
   <div class="banner-content">
     <h1>Le Wagon Berlin</h1>
     <p>Learn to code with us in Berlin</p>
@@ -9,32 +9,32 @@
 
 
 
-<div class="container">
-  <h1> all cocktails
-    <%= link_to new_cocktail_path do %>
+  <div class="container">
+    <h1> All cocktails
+      <%= link_to new_cocktail_path do %>
       <i class="fas fa-plus"></i>
-    <% end %>
- </h1>
+      <% end %>
+    </h1>
 
+    <div class="cards">
 
-
-  <div class="row">
-   <% @cocktails.each do |cocktail|  %>
-        <div class="col-xs-4">
-          <div class="card">
-            <div class="card-description">
+      <% @cocktails.each do |cocktail|  %>
+        <%= link_to cocktail_path(cocktail) do %>
+          <div class="card" , style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.6)),
+           url('<%= cl_image_path cocktail.photo, height: 300, width: 400, crop: :fill %>')">
+           <h3><%= cocktail.name  %> </h3>
+            <% cocktail.ingredients.each do |ingredient|  %>
               <ul>
-                <li>
-                  <%= cocktail.name  %> </li>
-                  <li><%= link_to "detail",cocktail_path(cocktail)%></li>
+                <li><%= ingredient.name %></li>
               </ul>
-            </div>
+            <% end %>
+
           </div>
-        </div>
-    <% end %>
+        <% end %>
+      <% end %>
+    </div>
+
   </div>
 
-
-</div>
 
 
